@@ -7,9 +7,7 @@ Auto-maintained knowledge base for platform services. Pages are generated and up
 ```
 wiki/
 ├── expenses/    — expense tracking service domain
-├── approvals/   — expense approval workflow domain
-├── auth/        — authentication and authorization
-└── billing/     — billing and payment domain
+└── approvals/   — expense approval workflow domain
 ```
 
 ## How it works
