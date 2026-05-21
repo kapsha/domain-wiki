@@ -60,13 +60,14 @@ Submit a new expense.
 ---
 
 ### `GET /expenses/`
-List all expenses, with optional category filter.
+List all expenses, with optional filters. Multiple filters combine (logical AND).
 
 **Query parameters**
 
-| Parameter  | Type     | Description                          |
-|------------|----------|--------------------------------------|
-| `category` | `string` | Optional. One of the `Category` enum values. |
+| Parameter   | Type   | Description                                                                 |
+|-------------|--------|-----------------------------------------------------------------------------|
+| `category`  | string | Optional. One of the `Category` enum values.                                |
+| `date_from` | date   | Optional. ISO 8601 date (e.g. `2026-01-01`). Returns only expenses where `expense.date >= date_from`. Inclusive. |
 
 **Response `200`** — array of `ExpenseResponse`
 
