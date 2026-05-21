@@ -87,7 +87,7 @@ All state is stored in an **in-process Python dictionary** (no database). Data i
 |---|---|---|
 | [expense-service](https://github.com/kapsha/expense-service) | `POST /expenses/` (HTTP) | Creates the expense record when an approval is granted |
 
-The base URL is configured via the `EXPENSE_TRACKER_URL` environment variable (default: `http://localhost:8000`). The HTTP client uses a 10-second timeout. If the expense tracker is unreachable or returns an error, the decision endpoint surfaces a `502` to the caller.
+The base URL is configured via the `EXPENSE_TRACKER_URL` environment variable. The HTTP client uses a 10-second timeout. If the expense tracker is unreachable or returns an error, the decision endpoint surfaces a `502` to the caller.
 
 ## Constraints and Limits
 
