@@ -6,7 +6,7 @@ Navigable index of subdomain pages.
 
 ## approvals
 
-- [overview.md (from kapsha/expense-approval-service)](./approvals/overview.md)
+- [expense-approval-service.md (from kapsha/expense-approval-service)](./approvals/expense-approval-service.md)
 
 ## expenses
 
