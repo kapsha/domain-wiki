@@ -4,13 +4,13 @@
 
 ## Purpose
 
-The Expense Service is a REST API for submitting and tracking employee expenses. It enforces per-category monthly spending caps and routes high-value expenses (> $500) to the [expense-approval-service](https://github.com/kapsha/expense-approval-service) for manager sign-off before recording.
+The Expense Service is a REST API for submitting and tracking employee expenses. It enforces per-category monthly spending caps and routes high-value expenses (> $1000) to the [expense-approval-service](https://github.com/kapsha/expense-approval-service) for manager sign-off before recording.
 
 ---
 
 ## Key Business Rules
 
-1. **High-value expenses require notes.** Any expense with `amount > $500` must include a non-blank `notes` field; the request is rejected at validation time (HTTP 422) if this is missing.
+1. **High-value expenses require notes.** Any expense with `amount > $1000` must include a non-blank `notes` field; the request is rejected at validation time (HTTP 422) if this is missing.
 2. **Monthly category caps.** Each category has a hard monthly cap. A create or update that would push the running monthly total for that category over its cap is rejected with HTTP 400 (`CapExceededError`). Caps are:
 
    | Category      | Monthly Cap |
@@ -49,7 +49,7 @@ Submit a new expense.
   "amount":   "float (> 0, required)",
   "category": "food | travel | utilities | entertainment | other",
   "date":     "YYYY-MM-DD (defaults to today)",
-  "notes":    "string | null (required when amount > $500)"
+  "notes":    "string | null (required when amount > $1000)"
 }
 ```
 
@@ -114,7 +114,7 @@ All persistence is currently **in-memory** (a module-level dictionary `_store`).
 | `amount`   | `float`        | Positive, in USD               |
 | `category` | `Category`     | Enum — see Business Rules      |
 | `date`     | `date`         | ISO 8601 (`YYYY-MM-DD`)        |
-| `notes`    | `string\|null` | Mandatory when amount > $500   |
+| `notes`    | `string\|null` | Mandatory when amount > $1000  |
 
 ---
 
@@ -122,7 +122,7 @@ All persistence is currently **in-memory** (a module-level dictionary `_store`).
 
 | Dependency | Purpose |
 |---|---|
-| [expense-approval-service](https://github.com/kapsha/expense-approval-service) | Receives high-value expenses (> $500) for manager sign-off before they are recorded |
+| [expense-approval-service](https://github.com/kapsha/expense-approval-service) | Receives high-value expenses (> $1000) for manager sign-off before they are recorded |
 
 The external approval service call is referenced in the README but the integration code is not yet visible in the source; treat this as a planned or in-progress dependency.
 
