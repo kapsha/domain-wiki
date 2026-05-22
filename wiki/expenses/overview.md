@@ -4,7 +4,7 @@
 
 ## Purpose
 
-The Expense Service is a REST API for submitting and tracking employee expenses. It enforces per-category monthly spending caps and routes high-value expenses (> $500) to the [expense-approval-service](https://github.com/kapsha/expense-approval-service) for manager sign-off before recording.
+The Expense Service is a REST API for submitting and tracking employee expenses. It enforces per-category monthly spending caps and routes high-value expenses (> $500) to the [expense-approval-service](../approvals/overview.md) for manager sign-off before recording.
 
 ---
 
@@ -122,7 +122,7 @@ All persistence is currently **in-memory** (a module-level dictionary `_store`).
 
 | Dependency | Purpose |
 |---|---|
-| [expense-approval-service](https://github.com/kapsha/expense-approval-service) | Receives high-value expenses (> $500) for manager sign-off before they are recorded |
+| [expense-approval-service](../approvals/overview.md) | Receives high-value expenses (> $500) for manager sign-off before they are recorded |
 
 The external approval service call is referenced in the README but the integration code is not yet visible in the source; treat this as a planned or in-progress dependency.
 

@@ -1,6 +1,6 @@
 # Domain Wiki
 
-Auto-maintained knowledge base for platform services. Pages are generated and updated by [wiki-agent](https://github.com/kapsha/wiki-agent) on PR merges.
+Auto-maintained knowledge base for platform services. Pages are generated and updated by the `wiki-delta` agent (in the `pr-agents` monorepo) on PR open events.
 
 ## Structure
 

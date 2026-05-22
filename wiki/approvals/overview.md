@@ -4,7 +4,7 @@
 
 ## Purpose
 
-The Expense Approval Service acts as a gating layer between expense submitters and the downstream [expense-service](https://github.com/kapsha/expense-service). Any expense exceeding $500 must pass through a manager approval workflow before it is recorded. Expenses at or below $500 are out of scope and should be submitted directly to the expense tracker.
+The Expense Approval Service acts as a gating layer between expense submitters and the downstream [expense-service](../expenses/overview.md). Any expense exceeding $500 must pass through a manager approval workflow before it is recorded. Expenses at or below $500 are out of scope and should be submitted directly to the expense tracker.
 
 ## Key Business Rules
 
@@ -85,7 +85,7 @@ All state is stored in an **in-process Python dictionary** (no database). Data i
 
 | Dependency | Interface | Purpose |
 |---|---|---|
-| [expense-service](https://github.com/kapsha/expense-service) | `POST /expenses/` (HTTP) | Creates the expense record when an approval is granted |
+| [expense-service](../expenses/overview.md) | `POST /expenses/` (HTTP) | Creates the expense record when an approval is granted |
 
 The base URL is configured via the `EXPENSE_TRACKER_URL` environment variable. The HTTP client uses a 10-second timeout. If the expense tracker is unreachable or returns an error, the decision endpoint surfaces a `502` to the caller.
 
